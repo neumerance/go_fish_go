@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :games do
     collection do
       get :start
+      get :fish
     end
   end
 end

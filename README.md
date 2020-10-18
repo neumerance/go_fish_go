@@ -1,24 +1,32 @@
-# README
+# Go Fish Go
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple API service for Fish Go card game.
 
-Things you may want to cover:
+### Get Started
 
-* Ruby version
+- Assuming you have running Postgresql in your system
+- Assuming you have RVM with ruby 2.6 or just ruby 2.6 installed in your system/
 
-* System dependencies
+After cloning this repo, run the follow code to get you started.
 
-* Configuration
 
-* Database creation
+```shell
+cd go_fish_go
 
-* Database initialization
+gem install bundler
 
-* How to run the test suite
+bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
+rake db:migrate
 
-* Deployment instructions
+bundle exec rspec
+```
 
-* ...
+If everything is green.
+
+```shell
+rails s
+```
+
+See the API documentation in: localhost:3000/apipie
+
