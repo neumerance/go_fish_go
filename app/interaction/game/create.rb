@@ -22,7 +22,7 @@ class Game::Create < ActiveInteraction::Base
   end
 
   def create_game
-    @game = Game.create
+    @game = Game.create(deck_id: DeckOfCardsService.new.get_new_deck.dig(:deck_id))
   end
 
   def number_of_players

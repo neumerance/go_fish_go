@@ -12,6 +12,7 @@ describe Game::Create do
   it 'creates' do
     expect { subject }.to change { Game.count }.by(1)
     expect(subject.game.game_players.count).to eq 5
+    expect(subject.game.deck_id.present?).to be_truthy
   end
 
   describe 'invalid' do

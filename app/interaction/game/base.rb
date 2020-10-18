@@ -1,31 +1,12 @@
 class Game::Base < ActiveInteraction::Base
-  MIN_PLAYER = 2.freeze
-
-  attr_accessor :game
-
-  array :players
-
-  validate :number_of_players
-
-  def execute
-    create_game
-    join_players
-    self
-  end
-
   private
 
-  def join_players
-    players.each do |player|
-      GamePlayer.create(game: game, player: player)
-    end
-  end
-
-  def create_game
-    @game = Game.create
-  end
-
-  def number_of_players
-    errors.add(:players, 'at least 2 player is required.') if players.count < MIN_PLAYER
+  def find_or_create_card(params)
+    Card.find_or_create_by(
+      value: params.dig(:value),
+      image: params.dig(:image),
+      suit: params.dig(:suit),
+      code: params.dig(:code)
+    )
   end
 end
